@@ -1,56 +1,76 @@
 const samplePost = {
   userProfile: {
-    userName: 'TechiSpot',
-    userImage: 'https://i.pinimg.com/474x/bd/26/b7/bd26b704fca0c5e3fe68f10322bf65c0.jpg',
+    userName: 'Aisha Johnson',
+    userImage: 'https://i.pinimg.com/474x/bd/26/b7/bd26b704fca0c5e3fe68f10322bf65c0.jpg', // consistent with your attached image
     alt: 'profileimage',
     followBtn: true
   },
   userPost: {
-    discription: `Hello, This is a post. Lorem, ipsum dolor...`,
+    discription: `🚀 Exciting news! JavaScript ES2025 has just been released with native support for advanced pattern matching and pipeline operators. As a front-end engineer, I've been waiting for these features: they simplify data transformations and make async code easier to read.
+    
+How do you see ES2025 shaping future JS development? Let's discuss!`,
     postImage: 'https://media.licdn.com/dms/image/D4D12AQG56UPUtPJj0w/article-cover_image-shrink_600_2000/0/1669373321238?e=2147483647&v=beta&t=uUMorY6yjVASSX_Iy-VNu8eXkAMfkmY97PWk7zDKR0w',
-    alt: 'userPost'
+    alt: 'JavaScript ES2025 launch banner'
   },
   comments: [
     {
       user: {
-        userName: 'Commenter1',
-        userImage: 'https://example.com/user1.jpg',
-        alt: 'commenter1image',
+        userName: 'Priyanshu Patel',
+        userImage: '', // Will fall back to faceless black avatar icon
+        alt: '',
         followBtn: true
       },
-      commentText: 'Great post! Keep it up!',
-      timestamp: '2024-03-12T12:34:56',
-      likes: 5
+      commentText: 'Pattern matching was long overdue. Finally simplifying those messy switch statements! 👏',
+      timestamp: '2025-07-29T13:10:00',
+      likes: 15
     },
     {
       user: {
-        userName: 'Commenter2',
-        userImage: 'https://example.com/user2.jpg',
-        alt: 'commenter2image',
+        userName: 'Elena Torres',
+        userImage: 'https://randomuser.me/api/portraits/women/44.jpg',
+        alt: '',
+        followBtn: false
+      },
+      commentText: `Pipeline operator is a game changer for RxJS & functional chains. Love how readable my code is now!`,
+      timestamp: '2025-07-29T13:15:36',
+      likes: 8
+    },
+    {
+      user: {
+        userName: 'Clark Smith',
+        userImage: 'https://randomuser.me/api/portraits/men/46.jpg',
+        alt: '',
         followBtn: true
       },
-      commentText: 'I love the content. Lorem ipsum!',
-      timestamp: '2024-03-12T13:45:30',
-      likes: 8
+      commentText: `This is brilliant for onboarding new team members, too—syntax is finally making complex ops approachable.`,
+      timestamp: '2025-07-29T13:22:13',
+      likes: 11
     }
   ],
-  timestamp: '2024-03-12T10:15:00',
-  likes: 15,
-  tags: ['technology', 'coding'],
-  location: 'india',
+  timestamp: '2025-07-29T12:30:00',
+  likes: 42,
+  tags: ['javascript', 'es2025', 'webdev', 'release'],
+  location: 'Bengaluru, India',
   likedBy: [
     {
-      userName: 'User1',
-      userImage: 'https://example.com/user1.jpg',
-      alt: 'user1image',
+      userName: 'Nia Williams',
+      userImage: 'https://randomuser.me/api/portraits/women/65.jpg',
+      alt: '',
+      followBtn: false
+    },
+    {
+      userName: 'Amar Singh',
+      userImage: 'https://randomuser.me/api/portraits/men/22.jpg',
+      alt: '',
       followBtn: true
     },
     {
-      userName: 'User2',
-      userImage: 'https://example.com/user2.jpg',
-      alt: 'user2image',
-      followBtn: true
+      userName: 'Li Zhang',
+      userImage: 'https://randomuser.me/api/portraits/men/31.jpg',
+      alt: '',
+      followBtn: false
     }
+    // ...add more if needed
   ]
 };
 
