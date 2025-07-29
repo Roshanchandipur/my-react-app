@@ -1,11 +1,9 @@
-// src/components/Feed.js
 import React from 'react';
 import Post from './Post';
 import samplePost from '../data/samplePost';
-import '../styles/feed.css'; // Create this CSS file!
+import '../styles/feed.css';
 
 function Feed() {
-  // Sample array; replace with real posts later.
   const posts = [samplePost, samplePost, samplePost]; // Show multiple cards for demo
 
   return (
