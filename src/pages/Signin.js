@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import '../styles/auth.css';
 
 const Signin = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState('');
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = e => {
@@ -14,7 +16,24 @@ const Signin = () => {
       return;
     }
     setError("");
-    // TODO: Login logic
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const matchedUser = users.find(
+      (user) => user.email === form.email && user.password === form.password
+    );
+
+    if (!matchedUser) {
+      setError("Invalid email or password!");
+      return;
+    }
+
+    localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+
+    setForm({ email: "", password: "" });
+
+    setTimeout(() => {
+      setSuccess('');
+      window.location.href = '/';
+    }, 2000);
   };
 
   return (

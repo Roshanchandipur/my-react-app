@@ -19,7 +19,7 @@ function UserProfile({ user, showFollow = false }) {
           e.target.src = defaultAvatar;
         }}
       />
-      <span><strong>{user.userName}</strong></span>
+      <span style={{ color: 'white' }}><strong>{user.userName}</strong></span>
       {showFollow && <button>Follow</button>}
     </div>
   );

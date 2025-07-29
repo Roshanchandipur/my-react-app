@@ -7,6 +7,7 @@ const Signup = () => {
   const [error, setError] = useState("");
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
+  const [success, setSuccess] = useState(false);
   const handleSubmit = e => {
     e.preventDefault();
     if (!form.name || !form.email || !form.password) {
@@ -14,7 +15,24 @@ const Signup = () => {
       return;
     }
     setError("");
-    // TODO: Registration logic
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.some(u => u.email === form.email)) {
+      setError("An account with this email already exists!");
+      setSuccess(false);
+      return;
+    }
+
+    users.push({ ...form });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    setError('');
+    setSuccess('Account created successfully! You can now sign in.');
+    setForm({ name: "", email: "", password: "" });
+    setTimeout(() => {
+      setSuccess(true);
+      window.location.href = '/';
+    }, 500);
   };
 
   return (
@@ -52,6 +70,7 @@ const Signup = () => {
           value={form.password}
           onChange={handleChange}
         />
+        {success && <div style={{ color: '#42e39a', marginBottom: '1rem', fontWeight: '600' }}>{success}</div>}
         <button type="submit" className="auth-btn">Sign Up</button>
         <Link to="/sign-in" className="auth-link">Login</Link>
       </form>

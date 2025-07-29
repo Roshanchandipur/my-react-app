@@ -8,7 +8,7 @@ const Sidebar = () => {
   const [newName, setNewName] = useState('');
   const [newMembers, setNewMembers] = useState('');
   const stored = JSON.parse(localStorage.getItem('communities'));
-  const [communities, setCommunities] = useState(stored);
+  const [communities, setCommunities] = useState(stored || initialCommunities);
 
 
   const handleAddCommunity = e => {
