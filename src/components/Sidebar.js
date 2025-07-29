@@ -1,20 +1,28 @@
 // src/components/Sidebar.js
 import React, { useState } from 'react';
-
-const communities = [
-  { name: 'FrontEnd', members: '1.5k' },
-  { name: 'BackEnd', members: '2.4k' },
-  { name: 'DevOps', members: '1k' },
-];
+import initialCommunities from '../data/initialCommunities'; // Import initial communities data
 
 const Sidebar = () => {
   const [showModal, setShowModal] = useState(false);
   const [newCommunity, setNewCommunity] = useState('');
+  const [newName, setNewName] = useState('');
+  const [newMembers, setNewMembers] = useState('');
+  const stored = JSON.parse(localStorage.getItem('communities'));
+  const [communities, setCommunities] = useState(stored);
+
 
   const handleAddCommunity = e => {
     e.preventDefault();
     setShowModal(false);
-    setNewCommunity('');
+    addCommunity(newCommunity, 1);
+  };
+
+  const addCommunity = (name, members) => {
+    setCommunities(prev => [...prev, { name, members }]);
+    localStorage.setItem('communities', JSON.stringify(communities));
+    setNewName('');
+    setNewMembers('');
+    setShowModal(false);
   };
 
   return (
